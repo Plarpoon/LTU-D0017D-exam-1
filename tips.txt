@@ -1,0 +1,17 @@
+If someone has a little difficulty interpreting the mathematics in the text for task 1, this might clarify a bit:
+
+Calculation of charging power single-phase 230V - sum in W:
+A * V = W
+For example. 10 * 230 = 2300 (Divide by 1000 for 2.3 kW for the task)
+
+
+Calculation of charging power three-phase 400V - sum in W:
+A * V * √3 = W
+For example. 10 * 230 * √3
+To clarify the root of: 10 * 400 * 1.732 (Divide by 1000 for 6.93 kW to the problem)
+
+The numbers needed are then in the picture.
+
+
+Charging time in h:
+The battery's kW / charging power as calculated above.
