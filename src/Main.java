@@ -16,35 +16,37 @@
 class Main {
     public static void main(String[] args) {
         // Define all the constants
-        final double storagePower = 35.8; // kWh (this actually is just the battery capacity)
-        final int[] current = new int[] { 10, 16, 10, 16, 32 }; // Ampere array of elements in the table
-        final int[] voltage = new int[] { 230, 230, 400, 400, 400 }; // Volt array of elements in the table
-        final double[] chargePower = new double[] { 2.3, 3.68, 6.93, 11.09, 22.17 }; // kW array of elements
-        final String shortSpace = "        ";
-        final String longSpace = "                ";
-        final int noOfDecimals = 2;
+        final double STORAGEPOWER = 35.8; // kWh (this actually is just the battery capacity)
+        final int[] CURRENT = new int[] { 10, 16, 10, 16, 32 }; // Ampere array of elements in the table
+        final int[] VOLTAGE = new int[] { 230, 230, 400, 400, 400 }; // Volt array of elements in the table
+        final double[] CHARGEPOWER = new double[] { 2.3, 3.68, 6.93, 11.09, 22.17 }; // kW array of elements
+        final String SHORTSPACE = "        ";
+        final String LONGSPACE = "                ";
+        final int NOOFDECIMALS = 2;
+
+        double singlePhaseChargingPower;
 
         // Print the table header
-        System.out.print("Battery capacity (kWh): " + storagePower + "\n");
+        System.out.print("Battery capacity (kWh): " + STORAGEPOWER + "\n");
         System.out.print("\n");
         System.out.print(
-                "Current(A)" + shortSpace + "Tension(V)" + shortSpace + "Power(kW)" + shortSpace + "Charge Time(h)"
-                        + shortSpace + "\n");
+                "Current(A)" + SHORTSPACE + "Tension(V)" + SHORTSPACE + "Power(kW)" + SHORTSPACE + "Charge Time(h)"
+                        + SHORTSPACE + "\n");
         System.out.print("===================================================================\n");
 
         // Print the table body
-        for (int i = 0; i < chargePower.length; i++) {
+        for (int i = 0; i < CHARGEPOWER.length; i++) {
             // Print the Amperage
-            System.out.print(current[i] + longSpace);
+            System.out.print(CURRENT[i] + LONGSPACE);
             // Print the Tension
-            System.out.print(voltage[i] + longSpace);
+            System.out.print(VOLTAGE[i] + LONGSPACE);
             // Print the Power
-            System.out.print(chargePower[i] + longSpace);
+            System.out.print(CHARGEPOWER[i] + LONGSPACE);
             // calculate full battery time
-            double singlePhaseChargingPower = (storagePower / chargePower[i]);
+            singlePhaseChargingPower = (STORAGEPOWER / CHARGEPOWER[i]);
             // round to 2 decimals
-            singlePhaseChargingPower = Math.round(singlePhaseChargingPower * Math.pow(10, noOfDecimals))
-                    / Math.pow(10, noOfDecimals);
+            singlePhaseChargingPower = Math.round(singlePhaseChargingPower * Math.pow(10, NOOFDECIMALS))
+                    / Math.pow(10, NOOFDECIMALS);
             // Print the Charge Time
             System.out.print(singlePhaseChargingPower + "\n");
         }
